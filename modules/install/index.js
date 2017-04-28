@@ -27,8 +27,8 @@ module.exports = () => {
             config.rethinkdb.db + "'"));
         }
       }
-      let tablesValid = await validateTables();
-
+      let invalidTables = await validateTables();
+      console.log(invalidTables);
 
     }catch (err){
       reject(err);

@@ -2,15 +2,20 @@ const r           = require(process.cwd() + "/utils/r");
 
 module.exports = {
   users: {
-    primaryKey: "username",
-    indexes: []
+    name        : "users",
+    primaryKey  : "username",
+    indexes: ["fag"]
   },
   workers: {
-    primaryKey: "id",
-    indexes: []
+    name        : "workers",
+    primaryKey  : "id",
+    indexes: [
+
+    ]
   },
   benchmarks: {
-    primaryKey: "id",
+    name        : "benchmarks",
+    primaryKey  : "id",
     indexes: [
       {name: "createdAt", func: r.row("createdAt")}
     ]
