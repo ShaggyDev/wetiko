@@ -1,0 +1,22 @@
+{
+  "name": "wetiko",
+  "version": "0.0.1",
+  "description": "Generic benchmarking tool for RethinkDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaggyDev/wetiko.git"
+  },
+  "author": "ShaggyDev & Henrik Andersson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShaggyDev/wetiko/issues"
+  },
+  "homepage": "https://github.com/ShaggyDev/wetiko#readme",
+  "dependencies": {
+    "rethinkdbdash": "^2.3.28"
+  }
+}
