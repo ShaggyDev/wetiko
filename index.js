@@ -7,7 +7,11 @@ logger.info("starting...");
 console.log(config.webServer)
 
 async function init(){
-  console.log(await install());
+  try{
+    console.log(await install());
+  }catch(err){
+    logger.error(err);
+  }
   return;
 }
 

@@ -6,7 +6,7 @@ const config                = require(process.cwd() + "/config/config");
 const checkTableExistence   = require("./checkTableExistance");
 
 function dropTable(tableName){
-  return new Promise(async(resolve, reject)=>{
+  return new Promise((resolve, reject)=>{
     r.db(config.rethinkdb.db)
       .tableDrop(tableName)
       .run()
@@ -26,14 +26,17 @@ function createTable(tableDefinition) {
     r.db(config.rethinkdb.db)
       .tableCreate(tableDefinition.name)
       .run()
-      .then((result) => {
+      .then(() => {
+
         return resolve(true);
       })
       .error((error) => {
         logger.error(error);
+        return reject(error);
       });
   });
 }
+
 function createIndex(table, index){
   return new Promise((resolve, reject)=>{
     r.db(config.rethinkdb.db)
