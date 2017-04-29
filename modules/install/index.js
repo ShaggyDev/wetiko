@@ -6,6 +6,7 @@ const dropDb          = require("./db/dropDB");
 const validateDb      = require("./db/validateDB");
 const createDb        = require("./db/createDB");
 const validateTables  = require("./tables/validateTables");
+const createTables    = require("./tables/createTables");
 
 module.exports = () => {
   return new Promise( async(resolve, reject) => {
@@ -28,7 +29,10 @@ module.exports = () => {
         }
       }
       let invalidTables = await validateTables();
-      console.log(invalidTables);
+
+      if(invalidTables.length > 0){
+        await createTables(invalidTables);
+      }
 
     }catch (err){
       reject(err);

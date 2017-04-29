@@ -18,12 +18,12 @@ module.exports = (tableSpecs)=>{
           let indexesFound  = true;
 
           tableSpecs.indexes.forEach((index)=>{
-            if(!foundIndexes.has(index)){
-              logger.info(`index '${index}' not found in table '${tableName}'`);
+            if(!foundIndexes.has(index.name)){
+              logger.info(`index '${index.name}' not found in table '${tableName}'`);
               indexesFound = false;
               return;
             }
-            logger.silly(`index '${index}' found in table '${tableName}'`);
+            logger.silly(`index '${index.name}' found in table '${tableName}'`);
           });
 
           return resolve(indexesFound);

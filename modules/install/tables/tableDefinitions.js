@@ -4,21 +4,28 @@ module.exports = {
   users: {
     name        : "users",
     primaryKey  : "username",
-    indexes: ["fag"]
+    indexes: [
+      {name: "createdAt", func: r.row("createdAt")}
+    ],
+    lastAction : {
+      moduleName: "users.lastAction.js"
+    }
   },
   workers: {
     name        : "workers",
     primaryKey  : "id",
     indexes: [
 
-    ]
+    ],
+    lastAction  : false
   },
   benchmarks: {
     name        : "benchmarks",
     primaryKey  : "id",
     indexes: [
       {name: "createdAt", func: r.row("createdAt")}
-    ]
+    ],
+    lastAction  : false
   },
 
 };

@@ -1,5 +1,3 @@
-const fs                = require("fs");
-
 const r                 = require(process.cwd() + "/utils/r");
 const logger            = require(process.cwd() + "/utils/logger");
 const config            = require(process.cwd() + "/config/config");
