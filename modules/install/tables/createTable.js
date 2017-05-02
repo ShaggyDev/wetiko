@@ -27,7 +27,7 @@ function createTable(tableDefinition) {
       .tableCreate(tableDefinition.name)
       .run()
       .then(() => {
-
+        logger.info(`table ${tableDefinition.name} created`);
         return resolve(true);
       })
       .error((error) => {
@@ -44,7 +44,7 @@ function createIndex(table, index){
       .indexCreate(index.name, index.func)
       .run()
       .then((result)=>{
-        console.log(result);
+        logger.info(`index '${index.name}' created for table '${table}'`);
         resolve(true);
       })
       .error((error)=>{
@@ -58,8 +58,7 @@ function createIndexes(tableDefinition){
   return new Promise(async(resolve, reject)=>{
     let indexesCreated = true;
     for(let i = 0; i < tableDefinition.indexes.length; i++){
-      //console.log(tableDefinition.indexes[i]);
-      //console.log( createIndex);
+
       try{
         let indexCreated = await createIndex(tableDefinition.name, tableDefinition.indexes[i]);
         if(!indexCreated){

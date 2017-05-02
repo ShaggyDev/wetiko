@@ -27,5 +27,13 @@ module.exports = {
     ],
     lastAction  : false
   },
+  benchmark_results: {
+    name        : "benchmark_results",
+    primaryKey  : "id",
+    indexes: [
+      {name: "createdAt", func: r.row("createdAt")}
+    ],
+    lastAction  : false
+  }
 
 };

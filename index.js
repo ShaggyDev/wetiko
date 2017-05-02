@@ -4,11 +4,11 @@ const logger    = require("./utils/logger");
 const install   = require("./modules/install");
 
 logger.info("starting...");
-console.log(config.webServer)
 
 async function init(){
   try{
-    console.log(await install());
+    await install();
+    require("./modules/webServer");
   }catch(err){
     logger.error(err);
   }
