@@ -6,7 +6,7 @@ class Benchmarks extends React.Component {
     return (
       <Row>
         <Col md={12}>
-          <h2>Benchmarks</h2>
+          <h2>Clusters</h2>
         </Col>
       </Row>
     );

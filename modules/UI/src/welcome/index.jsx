@@ -1,15 +1,15 @@
 import React from "react";
 
 import {Row, Col} from "react-bootstrap";
-class Benchmarks extends React.Component {
+class Welcome extends React.Component {
   render() {
     return (
       <Row>
         <Col md={12}>
-          <h2>Benchmarks</h2>
+          <h2>Welcome</h2>
         </Col>
       </Row>
     );
   }
 }
-export default Benchmarks;
+export default Welcome;

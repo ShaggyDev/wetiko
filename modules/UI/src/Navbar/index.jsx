@@ -6,13 +6,15 @@ class NavBar extends React.Component {
   render() {
     return (<Navbar fixedTop>
         <Nav bsStyle="pills" activeKey={1} >
+          <LinkContainer to="/clusters">
+            <NavItem eventKey={1} >Clusters</NavItem>
+          </LinkContainer>
           <LinkContainer to="/workers">
-            <NavItem eventKey={1} >NavItem 1 content</NavItem>
+            <NavItem eventKey={2} >Workers</NavItem>
           </LinkContainer>
-          <LinkContainer to="/" >
-            <NavItem eventKey={2} title="Item">NavItem 2 content</NavItem>
+          <LinkContainer to="/benchmarks" >
+            <NavItem eventKey={3} title="Item">Benchmarks</NavItem>
           </LinkContainer>
-            <NavItem eventKey={3} disabled>NavItem 3 content</NavItem>
         </Nav>
       </Navbar>
 

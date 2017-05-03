@@ -1,23 +1,43 @@
-import webpack from "webpack";
-import path from "path";
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default {
-  entry: "./modules/UI/src/App.js",
+export default () => ({
+  entry: [
+    path.join(__dirname, 'modules/UI/src/App.jsx'),
+  ],
   output: {
     path: path.join(__dirname, "/modules/UI/dist/assets/js"),
-    filename: "bundle.js",
-    publicPath: "/"
+    filename: 'bundle.js',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './modules/UI/src/index.html'
+    }),
+  ],
   module: {
-    loaders: [
-      // Used for compiling ES2015 JavaScript
-      { test: /\.js/, loader: "babel" },
-      // Used for Bootstrap Less Source Files
-      { test: /\.less/, loader: "style!css!less" },
-      // Used for Bootstrap Less Source Files
-      { test: /\.css/, loader: "style!css" },
-      // Used for Bootstrap Glyphicon Fonts
-      { test: /\.(woff2|woff|ttf|svg|eot)$/, loader: "file" }
+    rules: [
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'modules/UI/src/'),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                ['es2015', { modules: false }],
+                'react',
+              ],
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(css|scss|sass)$/,
+        loader: 'style!css!sass',
+      },
     ]
-  }
-};
+  },
+});
