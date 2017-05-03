@@ -1,11 +1,12 @@
 import reducers             from './reducers.js';
-import socketIO             from 'socket.io-client';
-import socketIoMiddleware   from 'redux-socket.io-middleware';
+import io                   from 'socket.io-client';
+import createSocketIoMiddleware   from 'redux-socket.io';
 
-const io = socketIO.connect(`http://localhost:3000`);
+const socket = io();
 
+const socketIoMiddleware = createSocketIoMiddleware(socket, "socket/");
 
 import { createStore,
   applyMiddleware}   from 'redux';
 
-export default createStore(reducers, applyMiddleware(socketIoMiddleware(io)));
+export default createStore(reducers, applyMiddleware(socketIoMiddleware));

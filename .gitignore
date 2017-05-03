@@ -2,3 +2,4 @@ node_modules
 bower_components
 .idea/*
 modules/UI/dist
+modules/UI/dist/assets/js/bundle.js
