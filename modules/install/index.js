@@ -14,6 +14,7 @@ module.exports = () => {
       logger.info("not running a full node, no need to verify install");
       return resolve(true);
     }
+    let validToContinue = true;
     logger.silly("validating install");
     try{
       if(argv.forceFreshInstall){
@@ -22,18 +23,28 @@ module.exports = () => {
 
       let dbValid = await validateDb();
       if(!dbValid){
+        validToContinue = false;
         dbValid = await createDb();
         if(!dbValid){
           return reject(new Error("Failed to create the database '" +
             config.rethinkdb.db + "'"));
         }
+        validToContinue = true;
+
       }
       let invalidTables = await validateTables();
 
       if(invalidTables.length > 0){
-        await createTables(invalidTables);
+        if(await createTables(invalidTables)){
+          validToContinue = true;
+        }else{
+          validToContinue = false;
+        }
+      }else{
+        validToContinue = true;
       }
 
+      return resolve(validToContinue);
     }catch (err){
       reject(err);
     }

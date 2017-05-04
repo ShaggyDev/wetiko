@@ -20,7 +20,6 @@ export default () => ({
       {
         test: /.jsx?$/,
         exclude: /node_modules/,
-        include: path.join(__dirname, 'modules/UI/src/'),
         use: [
           {
             loader: 'babel-loader',

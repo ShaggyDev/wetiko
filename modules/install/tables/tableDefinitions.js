@@ -34,6 +34,13 @@ module.exports = {
       {name: "createdAt", func: r.row("createdAt")}
     ],
     lastAction  : false
+  },
+  clusters: {
+    name        : "clusters",
+    primaryKey  : "id",
+    indexes: [
+      {name: "createdAt", func: r.row("createdAt")}
+    ],
+    lastAction  : false
   }
-
 };
