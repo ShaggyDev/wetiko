@@ -1,7 +1,14 @@
-import React from "react";
+import React        from "react";
+import { connect }  from 'react-redux';
+import NavBar       from "./navbar/index.jsx";
+import Sidebar      from "./sidebar/Sidebar.jsx";
+import {Grid,
+  Row,
+  Col
+}
 
-import NavBar from "./navbar/index.jsx";
-import {Grid, Row, Col} from "react-bootstrap";
+  from "react-bootstrap";
+
 
 class Page extends React.Component {
   render() {
@@ -9,7 +16,7 @@ class Page extends React.Component {
       <Grid fluid style={{paddingTop: "80px"}}>
         <NavBar />
         <Row>
-          <Col md={3}>stuff</Col>
+          <Sidebar clusters={this.props.clusters} cols={3} />
           <Col md={9}>
             {this.props.children}
           </Col>
@@ -18,4 +25,5 @@ class Page extends React.Component {
     );
   }
 }
+
 export default Page;

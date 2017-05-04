@@ -14,7 +14,8 @@ import {Row,
   Table
 } from "react-bootstrap";
 
-import AddNewClusterPanel from "./AddNewClusterPanel.jsx";
+import AddNewClusterPanel   from "./AddNewClusterPanel.jsx";
+import ClusterDetailsPanel  from "./ClusterDetailsPanel.jsx";
 import { connect }          from 'react-redux';
 
 class ClusterRow extends React.Component {
@@ -25,11 +26,11 @@ class ClusterRow extends React.Component {
   getDefault(){
     //todo: remove style
     return (<tr >
-      <td>{this.props.data.name}</td>
-      <td>{this.props.data.createdAt}</td>
-      <td>{this.props.data.primed}</td>
-      <td>{this.props.data.nodeCount}</td>
-      <td>{this.props.data.dbCount}</td>
+      <td>{this.props.cluster.name}</td>
+      <td>{this.props.cluster.createdAt}</td>
+      <td>{this.props.cluster.primed}</td>
+      <td>{this.props.cluster.nodeCount}</td>
+      <td>{this.props.cluster.dbCount}</td>
       <td>
 
         <Button className="btn-raised"
@@ -55,7 +56,7 @@ class ClusterRow extends React.Component {
     //todo: remove style
     return (<tr >
       <td colSpan={5}>
-        {this.props.data.name}
+        <ClusterDetailsPanel cluster={this.props.cluster} />
       </td>
       <td>
         <Button className="btn-raised"
@@ -118,7 +119,7 @@ class Clusters extends React.Component {
             </thead>
             <tbody>
             {this.props.clusters.clusters.map((cluster)=>{
-              return (<ClusterRow key={cluster.name} data={cluster} />);
+              return (<ClusterRow key={cluster.name} cluster={cluster} />);
             })
             }
             </tbody>
