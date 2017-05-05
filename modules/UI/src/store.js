@@ -2,7 +2,7 @@ import reducers                     from "./reducers.js";
 import io                           from "socket.io-client";
 import createSocketIoMiddleware     from "redux-socket.io";
 
-const socket = io();
+const socket = io("/client");
 
 socket.on("connect", function(){
   console.log(socket.id); // "G5p5..."

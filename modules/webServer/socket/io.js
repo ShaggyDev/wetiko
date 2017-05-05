@@ -1,11 +1,12 @@
-const IO        = require( 'socket.io' );
+const IO        = require( "socket.io" );
 const io = new IO({
-  namespace: '/'
+  namespace: "/"
 });
 io.serveClient(false);
 
 io.on("connection", (socket)=>{
-  console.log("connected");
-
+  // not really used for anything we use socket.io namespaces for actual socket logic
+  console.log("something connected");
 });
+
 module.exports = io;

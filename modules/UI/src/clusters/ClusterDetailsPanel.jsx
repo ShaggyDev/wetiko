@@ -89,7 +89,7 @@ class ClusterDetailsDBPanel extends React.Component {
                   .map((db)=>{
                     eventKey += 1;
                     console.log(eventKey);
-                    return (<Panel header={db.name} eventKey={eventKey}>
+                    return (<Panel key={db.name} header={db.name} eventKey={eventKey}>
                       Anim pariatur cliche r
                     </Panel>);
 
