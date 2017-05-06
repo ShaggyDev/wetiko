@@ -12,7 +12,12 @@ class NavBar extends React.Component {
       <Navbar fixedTop style={{paddingTop: "4px"}} className="navbar-warning">
         <Navbar.Header>
           <Navbar.Brand>
-              <Link to="/" >wetico rethinkdb</Link>
+            <Link to="/" >
+            {/* fix this, we be using no styles, we be using them classes*/}
+              <img style={{height: "120%", width: "auto", display: "inline", marginTop: "-10px"}} src="/assets/images/wetikoMaskot.png" />
+              wetico rethinkdb
+            </Link>
+
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

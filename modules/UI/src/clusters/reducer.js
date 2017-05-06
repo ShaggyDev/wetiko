@@ -16,29 +16,33 @@ const clusterTemplate = {
   dbCount: 5,
   primed: true
 };
+
 const dbTemplate = {
   id:  "030ef88c-2861-4da8-a4e6-1ec33ef58f0d" ,
   name:  "wetiko",
-  tables: [{
-    db:  "wetiko" ,
-    durability:  "hard" ,
-    id:  "1e884393-a620-4a0e-83a1-e991694e3395" ,
-    indexes: [
-      "createdAt"
-    ] ,
-    name: "benchmark_results" ,
-    primary_key: "id" ,
-    shards: [{
-      nonvoting_replicas: [ ],
-      primary_replica:  "DESKTOP_39A8L9I_c68" ,
-      replicas: [
-        "DESKTOP_39A8L9I_c68"
-      ]
-    }
-    ] ,
-    write_acks:  "majority"}
+  tables: [
+
   ]
 };
+
+const tableTemplate = {
+  db:  "wetiko" ,
+  durability:  "hard" ,
+  id:  "1e884393-a620-4a0e-83a1-e991694e3395" ,
+  indexes: [
+    "createdAt"
+  ] ,
+  name: "benchmark_results" ,
+  primary_key: "id" ,
+  shards: [{
+    nonvoting_replicas: [ ],
+    primary_replica:  "DESKTOP_39A8L9I_c68" ,
+    replicas: [
+      "DESKTOP_39A8L9I_c68"
+    ] ,
+    write_acks:  "majority"
+  }]
+  };
 const serverInstanceTemplate = {
   cache_size_mb: "auto",
   id: "6cc2ce4e-14dc-42f5-ae8b-b30a962e6ca8",

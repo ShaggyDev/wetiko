@@ -5,15 +5,14 @@ import Sidebar      from "./sidebar/Sidebar.jsx";
 import {Grid,
   Row,
   Col
-}
-
-  from "react-bootstrap";
-
+}                   from "react-bootstrap";
+import LoginModal    from "./user/LoginModal.jsx";
 
 class Page extends React.Component {
   render() {
     return (
       <Grid fluid style={{paddingTop: "80px"}}>
+        <LoginModal />
         <NavBar />
         <Row>
           <Sidebar clusters={this.props.clusters} cols={3} />
