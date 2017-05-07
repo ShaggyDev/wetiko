@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ShaggyDev/wetiko#readme",
   "dependencies": {
+    "axios": "^0.16.1",
     "bcrypt": "^1.0.2",
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",

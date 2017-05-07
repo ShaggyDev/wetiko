@@ -1,12 +1,15 @@
-const logger          = require(process.cwd() + "/utils/logger");
-const r               = require(process.cwd() + "/utils/r");
-const argv            = require("optimist").argv;
+const logger              = require(process.cwd() + "/utils/logger");
+const r                   = require(process.cwd() + "/utils/r");
+const argv                = require("optimist").argv;
 
-const dropDb          = require("./db/dropDB");
-const validateDb      = require("./db/validateDB");
-const createDb        = require("./db/createDB");
-const validateTables  = require("./tables/validateTables");
-const createTables    = require("./tables/createTables");
+const dropDb              = require("./db/dropDB");
+const validateDb          = require("./db/validateDB");
+const createDb            = require("./db/createDB");
+const validateTables      = require("./tables/validateTables");
+const createTables        = require("./tables/createTables");
+const verifyAdminAccount  = require("./verifyAdminAccount");
+const createAdminAccount  = require("./createAdminAccount");
+
 
 module.exports = () => {
   return new Promise( async(resolve, reject) => {
@@ -43,7 +46,14 @@ module.exports = () => {
       }else{
         validToContinue = true;
       }
+      if(!await verifyAdminAccount()){
+        validToContinue = false;
+        logger.info("admin account not found, creating");
+        if(await createAdminAccount()){
+          validToContinue = true;
+        }
 
+      }
       return resolve(validToContinue);
     }catch (err){
       reject(err);

@@ -24,7 +24,8 @@ function dropTable(tableName){
 function createTable(tableDefinition) {
   return new Promise((resolve, reject) => {
     r.db(config.rethinkdb.db)
-      .tableCreate(tableDefinition.name)
+      .tableCreate(tableDefinition.name,
+        {primaryKey: tableDefinition.primaryKey})
       .run()
       .then(() => {
         logger.info(`table ${tableDefinition.name} created`);

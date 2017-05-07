@@ -1,6 +1,8 @@
 import React        from "react";
 import { connect }  from 'react-redux';
 
+import axios from "axios";
+
 import {
   Row,
   Col,
@@ -17,7 +19,15 @@ class LoginModal extends React.Component{
     super(...args);
     this.state = {};
   }
-
+  login(){
+    axios.get("/api/client/v1/login")
+      .then((response)=>{
+        console.log(response)
+        console.log(response.data)
+      }).catch((err)=>{
+        console.log(err);
+      });
+  }
 
   render(){
     return (
@@ -29,9 +39,9 @@ class LoginModal extends React.Component{
           </Col>
           <Col xs={7} >
             <h3>Wetiko Login</h3>
-            <input type="password" className="form-control" placeholder="Username" />
-            <input type="password" className="form-control" placeholder="Password"/>
-            <Button className="btn btn-success btn-raised"> Login</Button>
+            <input ref={(input)=>{ this.userNameField = input} } type="password" className="form-control" placeholder="Username" />
+            <input ref={(input)=>{ this.passwordField = input} }type="password" className="form-control" placeholder="Password"/>
+            <Button onClick={this.login} className="btn btn-success btn-raised"> Login</Button>
           </Col>
         </Row>
       </Modal.Body>
