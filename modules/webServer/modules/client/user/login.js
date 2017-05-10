@@ -20,8 +20,8 @@ module.exports = async(ctx, next)=>{
       valid = await validatePassword(password, user.password);
     }
     if(valid){
-      ctx.cookies.set("auth_token", await getJwtToken(user));
-      ctx.body = {success: true, authenticated: true};
+      ctx.cookies.set("auth_token", await getJwtToken(user), {httpOnly: false});
+      ctx.body = {success: true, userData: {authenticated: true, overWrite: true}};
       return ;
     }
     ctx.body = {success: false, error: "auth", errorMsg: `username not found or invalid password`};

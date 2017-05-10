@@ -51,7 +51,7 @@ module.exports = () => {
         logger.info("admin account not found, creating");
         if(await createAdminAccount()){
           validToContinue = true;
-        }
+        } 
 
       }
       return resolve(validToContinue);

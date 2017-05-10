@@ -52,7 +52,7 @@ class ClusterDetailsDBPanel extends React.Component {
                   Name
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="email" placeholder="Name of your cluster" />
+                  <FormControl type="text" placeholder="Name of your cluster" />
                 </Col>
               </FormGroup>
             </Col>
@@ -65,7 +65,7 @@ class ClusterDetailsDBPanel extends React.Component {
                   Name
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="email" placeholder="Name of your cluster" />
+                  <FormControl type="text" placeholder="Name of your cluster" />
                 </Col>
               </FormGroup>
             </Col>
@@ -75,7 +75,7 @@ class ClusterDetailsDBPanel extends React.Component {
                   Name
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="email" placeholder="Name of your cluster" />
+                  <FormControl type="text" placeholder="Name of your cluster" />
                 </Col>
               </FormGroup>
             </Col>
@@ -88,7 +88,7 @@ class ClusterDetailsDBPanel extends React.Component {
                 this.props.cluster.clusterInfo.databases
                   .map((db)=>{
                     eventKey += 1;
-                    console.log(eventKey);
+
                     return (<Panel key={db.name} header={db.name} eventKey={eventKey}>
                       Anim pariatur cliche r
                     </Panel>);

@@ -78,9 +78,11 @@ class ClusterRow extends React.Component {
       </td>
     </tr>);
   }
+
   toggleExtended(){
     this.setState({extended: !this.state.extended});
   }
+
   render(){
     if(this.state.extended){
       return this.getExtended();
