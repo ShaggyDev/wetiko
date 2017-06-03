@@ -3,6 +3,7 @@ import React                    from "react";
 import {Nav, NavItem, Navbar, NavDropdown, MenuItem}   from "react-bootstrap";
 import {LinkContainer}          from "react-router-bootstrap";
 import {Link}                   from "react-router-dom";
+import MaskotImg from '../assets/images/wetikoMaskot.png';
 class NavBar extends React.Component {
   render() {
 
@@ -14,7 +15,7 @@ class NavBar extends React.Component {
           <Navbar.Brand>
             <Link to="/" >
             {/* fix this, we be using no styles, we be using them classes*/}
-              <img style={{height: "120%", width: "auto", display: "inline", marginTop: "-10px"}} src="/assets/images/wetikoMaskot.png" />
+              <img style={{height: "120%", width: "auto", display: "inline", marginTop: "-10px"}} src={MaskotImg} />
               wetico rethinkdb
             </Link>
 

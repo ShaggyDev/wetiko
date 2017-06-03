@@ -6,12 +6,12 @@ export default () => ({
     path.join(__dirname, 'modules/UI/src/App.jsx'),
   ],
   output: {
-    path: path.join(__dirname, "/modules/UI/dist/assets/js"),
+    path: path.join(__dirname, "/modules/UI/dist"),
     filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'main.html',
       template: './modules/UI/src/index.html'
     }),
   ],
@@ -35,9 +35,25 @@ export default () => ({
         ]
       },
       {
-        test: /\.(css|scss|sass)$/,
-        loader: 'style!css!sass',
+        test: /\.css$/,
+        loader: "style-loader!css-loader",
       },
+      {
+        test: /\.png$/,
+        loader: "url-loader?limit=100000"
+      },
+      {
+        test: /\.jpg$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?mimetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      }
     ]
   },
 });

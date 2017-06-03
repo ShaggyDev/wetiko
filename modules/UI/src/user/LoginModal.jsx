@@ -11,6 +11,8 @@ import {
   FieldGroup
 }                   from "react-bootstrap";
 
+import MaskotImg from '../assets/images/wetikoMaskot.png';
+
 class LoginModal extends React.Component{
   constructor(...args){
     super(...args);    this.state = {};
@@ -33,7 +35,7 @@ class LoginModal extends React.Component{
       <Modal.Body>
         <Row>
           <Col xs={5} >
-            <img className="img img-responsive" src="/assets/images/wetikoMaskot.png" />
+            <img className="img img-responsive" src={MaskotImg} />
           </Col>
           <Col xs={7} >
             <h3>Wetiko Login</h3>

@@ -13,10 +13,10 @@ const koaBody = require("koa-body");
 
 app.use(routes.routes());
 
-app.use(mount("/assets", serve(process.cwd() + "/modules/UI/dist/assets")));
+app.use(mount("/", serve(process.cwd() + "/modules/UI/dist")));
 app.use(async (ctx) => {
-  // this route enables react router (always servers index.html if the route isn"t catched by other routes)
-  await send(ctx,  "/modules/UI/dist/index.html");
+  // this route enables react router (always servers main.html if the route isn"t catched by other routes)
+  await send(ctx,  "/modules/UI/dist/main.html");
 });
 
 const server   = http.createServer(app.callback());
